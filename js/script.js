@@ -60,10 +60,14 @@ function buildMessage ( ) {
   message += '</p>'
 }
 
+function printMessage () {
+  document.getElementById('quote-box').innerHTML = message;
+}
+
 function printQuote () {
   message = ""
-  document.getElementById('quote-box').innerHTML = message;
+  printMessage();
   getRandomQuote();
   buildMessage();
-  document.getElementById('quote-box').innerHTML = message;
+  printMessage();
 }
