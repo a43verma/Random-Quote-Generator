@@ -115,3 +115,6 @@ function printQuote () {
   printMessage();
   colorChange();
 }
+
+// Automatically calls the printQuote function after an interval of time
+setInterval(function(){printQuote()}, 10000);
