@@ -74,6 +74,7 @@ function colorChange (){
   var newColor = "rgb(" + rGBNumber() + "," + rGBNumber() + "," + rGBNumber() + ")";
   var x = document.getElementsByTagName('BODY');
   x[0].style.backgroundColor = newColor;
+  document.getElementById('loadQuote').style.backgroundColor = newColor;
   }
 
 function getRandomQuote ( ) {
