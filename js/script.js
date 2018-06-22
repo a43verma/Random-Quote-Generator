@@ -90,7 +90,7 @@ function printMessage () {
 
 // returns a number between 0 - 300 to be used as an RGB value
 function rGBNumber () {
-  return Math.floor(Math.random() * 300);
+  return Math.floor(Math.random() * 100);
 }
 
 // changes the color of the background of the body and the button
