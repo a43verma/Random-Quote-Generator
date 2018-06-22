@@ -62,25 +62,12 @@ var message = "";
 // used to hold the object pulled from the quotes array
 var randomQuote = {};
 
-// returns a number between 0 - 300 to be used as an RGB value
-function rGBNumber () {
-  return Math.floor(Math.random() * 300);
-}
-
-// used the rGBNumber function to produce a string that can be used as a CSS property
-
-
-function colorChange (){
-  var newColor = "rgb(" + rGBNumber() + "," + rGBNumber() + "," + rGBNumber() + ")";
-  var x = document.getElementsByTagName('BODY');
-  x[0].style.backgroundColor = newColor;
-  document.getElementById('loadQuote').style.backgroundColor = newColor;
-  }
-
+// selects a random quote from the quotes array
 function getRandomQuote ( ) {
   randomQuote = quotes[(Math.floor(Math.random() * quotes.length))];
 }
 
+// builds the final output based on the chosen quote
 function buildMessage ( ) {
   message += '<p class="quote">' + randomQuote.quote + '</p>';
   message += '<p class="source">' + randomQuote.source;
@@ -96,22 +83,35 @@ function buildMessage ( ) {
   message += '</p>'
 }
 
+// prints a message to the 'quote-box' div
 function printMessage () {
   document.getElementById('quote-box').innerHTML = message;
 }
 
+// returns a number between 0 - 300 to be used as an RGB value
+function rGBNumber () {
+  return Math.floor(Math.random() * 300);
+}
 
+// changes the color of the background of the body and the button
+function colorChange (){
+  var newColor = "rgb(" + rGBNumber() + "," + rGBNumber() + "," + rGBNumber() + ")";
+  var x = document.getElementsByTagName('BODY');
+  x[0].style.backgroundColor = newColor;
+  document.getElementById('loadQuote').style.backgroundColor = newColor;
+  }
+
+/*
+Combines all the previous functions by first erasing the current message
+variable. Then gets a random quote, builds the message over again, and
+finally changes the color. Activated when the 'Show another quote' button
+is pressed.
+ */
 
 function printQuote () {
   message = ""
-  printMessage();
   getRandomQuote();
   buildMessage();
   printMessage();
   colorChange();
 }
-
-
-// body {
-//   /*text-align: center;*/
-//   background-color: #36b55c;
