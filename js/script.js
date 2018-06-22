@@ -68,13 +68,12 @@ function rGBNumber () {
 }
 
 // used the rGBNumber function to produce a string that can be used as a CSS property
-var newColor = "rgb(" + rGBNumber() + "," + rGBNumber() + "," + rGBNumber() + ")";
 
 
 function colorChange (){
+  var newColor = "rgb(" + rGBNumber() + "," + rGBNumber() + "," + rGBNumber() + ")";
   var x = document.getElementsByTagName('BODY');
   x[0].style.backgroundColor = newColor;
-  console.log(x);
   }
 
 function getRandomQuote ( ) {
