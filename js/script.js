@@ -2,11 +2,12 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+// An array of objects that contain quotes
 var quotes = [
   {
     quote: 'Music is like a dream. One that I cannot hear.',
     source: 'Ludwig van Beethoven',
-    citation: 'CMUSE'
+    citation: 'CMUSE',
     type: 'Music'
   },
   {
@@ -55,8 +56,26 @@ var quotes = [
   }
 ];
 
+// used to hold and build the final output string
 var message = "";
+
+// used to hold the object pulled from the quotes array
 var randomQuote = {};
+
+// returns a number between 0 - 300 to be used as an RGB value
+function rGBNumber () {
+  return Math.floor(Math.random() * 300);
+}
+
+// used the rGBNumber function to produce a string that can be used as a CSS property
+var newColor = "rgb(" + rGBNumber() + "," + rGBNumber() + "," + rGBNumber() + ")";
+
+
+function colorChange (){
+  var x = document.getElementsByTagName('BODY');
+  x[0].style.backgroundColor = newColor;
+  console.log(x);
+  }
 
 function getRandomQuote ( ) {
   randomQuote = quotes[(Math.floor(Math.random() * quotes.length))];
@@ -81,10 +100,18 @@ function printMessage () {
   document.getElementById('quote-box').innerHTML = message;
 }
 
+
+
 function printQuote () {
   message = ""
   printMessage();
   getRandomQuote();
   buildMessage();
   printMessage();
+  colorChange();
 }
+
+
+// body {
+//   /*text-align: center;*/
+//   background-color: #36b55c;
